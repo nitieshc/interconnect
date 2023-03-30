@@ -1,0 +1,16 @@
+image: node:latest
+
+stages:
+  - build
+  - deploy
+
+build:
+  stage: build
+  script:
+    - npm install
+    - npm run build
+
+deploy:
+  stage: deploy
+  script:
+    - ssh <ec2-user>@<34.229.23.32> "cd /path/to/project && git pull"
